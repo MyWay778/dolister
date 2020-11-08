@@ -1,0 +1,12 @@
+{
+  "name": "dolister",
+  "version": "0.0.1",
+  "description": "ToDo list",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Ivan Saklakov",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}
