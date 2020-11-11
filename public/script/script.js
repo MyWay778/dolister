@@ -1,42 +1,28 @@
 "use strict"
-const tabs = document.querySelectorAll(".panel__item")
-const displayList = document.querySelector(".display-list")
+
 let taskLocalData = []
 
 //Local Storage synchronize
-
 if ( localStorage.tasks ) {
     taskLocalData =  extractLocalStorageData("tasks")
 }
+
+const tabs = document.querySelectorAll(".panel__item")
+const displayList = document.querySelector(".display-list")
 //Tabs
-tabs.forEach( tab => {
-    if (tab.textContent.includes("New")) {
-        tab.addEventListener("click", handlerNew, false)
-    }
-})
+//New tab
+const handlerNew = makeHandlerTab(displayList, taskLocalData, true)
+tabs[0].addEventListener("click", handlerNew, false)
+
+//Old tab
+
 
 //Form-Add
 const formAdd = document.forms.formAdd
-formAdd.addEventListener("submit", handlerSubmit, false)
+const saveToLocalStorageCallback = makeCallback(saveToLocalStorage, "tasks", taskLocalData)
+const handlerSubmitAdd = makeHandlerSubmitAdd(formAdd, taskLocalData, Task, saveToLocalStorageCallback) 
 
-function handlerSubmit(evt) {
-    const inputTask = formAdd.inputTask
-    const inputTags = formAdd.inputTags
-    const newTask = {
-        "owner":"guest", 
-        "description": "", 
-        "tags": [], 
-        "completed": "false"
-    }
-
-    newTask.description = inputTask.value
-    newTask.tags = inputTags.value ? inputTags.value.replace(/(\s*,+\s*)|(\s+)/g," ").split(" ") : ["none"]
-    
-    taskLocalData.push(newTask)
-
-    saveToLocalStorage("tasks", taskLocalData)
-   evt.preventDefault()
-}
+formAdd.addEventListener("submit", handlerSubmitAdd, false)
 
 
 
