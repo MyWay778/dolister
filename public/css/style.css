@@ -67,6 +67,12 @@
 .link_panel_noclick{
     cursor: default;
 }
+.logined {
+    color: var(--main-color);
+    cursor: default;
+    font-weight: normal;
+    text-decoration: none;
+}
 
 /* Header */
 .header {
@@ -154,18 +160,20 @@
 }
 /* Modal */
 .modal {
-    display: none;
+    /*display: none;*/
     position: absolute;
     top: 37px;
     width: 245px;
-    height: 218px;
+    height: 180px;
     background-color: #fff;
     border: 1px solid var(--border-color);
     z-index: 100;
 }
 .modal_signup {
     right: 4%;
+    height: 218px;
 }
+
 .modal-menu {
     width: 160px;
     margin: 0 auto;
@@ -177,6 +185,13 @@
     height: 30px;
     margin-top: 15px;
 }
+.modal-menu__input:valid {
+    border-color: var(--main-color)
+}
+.invalid {
+    border-color: red !important;  
+    outline-color: red !important;
+}
 .modal-menu__submit {
     margin: 20px auto 0;
     width: 85px;
@@ -186,6 +201,13 @@
     color: #fff;
     font-size: 16px;
     cursor: pointer;
+}
+.modal-message {
+    font-size: 12px;
+    position: absolute;
+    color: var(--main-color);
+    top: 7px;
+    left: 30px;
 }
 
 /* Main */
@@ -268,6 +290,9 @@
 .list_theme_one {
     padding: 16px 10% 0px;
 }
+.list_theme_tag {
+    padding: 0 10% 0;
+}
 .list_text {
     font-size: 16px;
 }
@@ -276,10 +301,14 @@
     padding: 15px 0 0;
 }
 .list__row_theme_tag {
-    padding: 3px 0 10px;
+    padding: 0;
 }
 .list__row_done {
-    color: var(--main-color);
+    color: rgba(15, 190, 0, .3);
+}
+
+.list-tags {
+    list-style-type: none;
 }
 
 .tag-row {
@@ -303,7 +332,7 @@
 .task__item {
     text-align: left;
     cursor: pointer;
-    align-self: flex-end;
+    align-self: flex-end; 
     padding: 5px 10px;
     border-radius: 10px;
     transition: background-color .2s;
@@ -315,8 +344,12 @@
     display: none;
 }
 .task__input {
-    height: 30px;
+    width: 60%;
+    height: 29px;
+    font-size: 16px;
+    text-align: left;
     align-self: flex-end;
+    padding: 0 9px;
 }
 .task__num {
     display: inline-block;
@@ -326,8 +359,6 @@
     font-weight: bold;
 }
 .task__item_done {
-    color: var(--main-color);
-    opacity: .3;
     text-decoration: line-through;
 }
 .controls {

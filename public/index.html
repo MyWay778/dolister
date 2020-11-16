@@ -23,16 +23,16 @@
                     <nav class="nav nav_theme_one">
                         <ul class="menu menu_theme_one panel_text_simple">
                             <li class="menu__item"><a class="link  link_menu" href="about.html">About</a></li>
-                            <li class="menu__item item_highlight"><a class="link link_menu" href="#">Log in</a></li>
-                            <li class="menu__item"><a class="link link_menu" href="#">Sign up</a></li>
+                            <li class="menu__item item_highlight"><a id="login" class="link link_menu" href="#">Log in</a></li>
+                            <li class="menu__item"><a id="signup" class="link link_menu" href="#">Sign up</a></li>
                         </ul>
                         <span class="burger burger_theme_one"></span>
                         <div class="modal modal_signup">
-                            <form class="modal-menu" method="POST" action="">
-                                <input id="login" class="form-add__input modal-menu__input" type ="text" placeholder="login" required>
-                                <input id="password" class="form-add__input modal-menu__input" type="password" placeholder="password" required> 
-                                <input id="confirm" class="form-add__input modal-menu__input" type="" placeholder="confirm" required>
-                                <button class="modal-menu__submit" type="submit">signup</button>
+                            <form class="modal-menu" method="POST" action="/user">
+                                <input name="login" id="login" class="form-add__input modal-menu__input" type ="text" placeholder="login" minLength="3" maxLength="15" required>
+                                <input name="password" id="password" class="form-add__input modal-menu__input" type="password" autocomplete="on" placeholder="password" minLength="5" maxLength="15" required> 
+                                <input name="confirm" id="confirm" class="form-add__input modal-menu__input" type="password" autocomplete="on" placeholder="confirm"  required>
+                                <input class="modal-menu__submit" type="submit" value="signup">
                             </form>
                         </div>
                     </nav>
@@ -40,7 +40,7 @@
             </header>
             <main class="main">
                 <div class='panel panel_theme_one panel_text_simple'>
-                    <span class='panel__item'><a class="link link_panel" href="#">New</a></span> <!-- link_panel_clicked, delete link_panel -->
+                    <span class='panel__item'><a class="link link_panel" href="#">New</a></span> 
                     <span class='panel__item'><a class="link link_panel" href="#">Old</a></span>
                     <span class='panel__item'><a class="link link_panel" href="#">Tags</a></span>
                     <span class='panel__item panel__item_aside'><a class="link link_panel_noclick" href="#">Add</a></span>
@@ -48,44 +48,12 @@
                 <section class="display">
                     <aside class="aside-add aside-add_theme_one">
                         <form name="formAdd" class="form-add" method="POST" action="">
-                            <input name="inputTask" class="form-add__input form-add__input_task" type="text" placeholder="task" required>
-                            <input name="inputTags" class="form-add__input form-add__input_tags" type="text" placeholder="tags">
+                            <input name="inputTask" class="form-add__input form-add__input_task" type="text" maxlength="40" placeholder="task" required>
+                            <input name="inputTags" class="form-add__input form-add__input_tags" type="text" maxlength="25" placeholder="tags">
                             <button name="buttonAdd" class="form-add__submit" type="submit">+</button>
                         </form>
                     </aside>
                     <section class="display-list">
-                        <!-- <ol class="list list_theme_one list_text"> 
-                            <li class="list__row list__row_theme_one">
-                                <div class="task">
-                                    <span class="task__item">3. Call Tracy</span> !-- task__item_active --
-                                    <div class="controls controls_theme_one">
-                                        <span class="controls__button button controls__button_done"></span>
-                                        <span class="controls__button button controls__button_edit"></span>
-                                        <span class="controls__button button controls__button_delete"></span>
-                                    </div>
-                                </div>
-                            </li> 
-                            <li class="list__row list__row_theme_one">
-                                <div class="task">
-                                    <span class="task__item">2. Do my homework</span>
-                                    <div class="controls controls_theme_one controls_hide">
-                                        <span class="controls__button button controls__button_done"></span>
-                                        <span class="controls__button button controls__button_edit"></span>
-                                        <span class="controls__button button controls__button_delete"></span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list__row list__row_theme_one">
-                                <div class="task">
-                                    <span class="task__item">1. Need to go to the supermarket</span>
-                                    <div class="controls controls_theme_one controls_hide">
-                                        <span class="controls__button button controls__button_done"></span>
-                                        <span class="controls__button button controls__button_edit"></span>
-                                        <span class="controls__button button controls__button_delete"></span>
-                                    </div>
-                                </div>
-                            </li> 
-                        </ol> --> 
                     </section>
                 </section>
             </main>
@@ -94,6 +62,8 @@
             <span class="copyright">Ivan Saklakov <b>2020</b> sakla4onakne@mail.ru</span>
         </footer>
     </div>
+    <script defer src="script/modules/modalMenu.js"></script>
+    <script defer src="script/modules/controls.js"></script>
     <script defer src="script/modules/Task.js"></script>
     <script defer src="script/modules/formAdd.js"></script>
     <script defer src="script/modules/localStorage.js"></script>
