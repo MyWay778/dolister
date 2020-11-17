@@ -188,6 +188,9 @@
 .modal-menu__input:valid {
     border-color: var(--main-color)
 }
+.modal-menu__input:invalid {
+    box-shadow: none;
+}
 .invalid {
     border-color: red !important;  
     outline-color: red !important;

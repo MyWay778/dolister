@@ -33,6 +33,10 @@ signup.addEventListener("click", evt => {
         login.className = "link link_menu"
         login.addEventListener("click", handlerLogin)
         evt.target.textContent = "Sign up"
+        taskLocalData = tempData
+        local = true
+        userId = "gest"
+        currentActiveTab()
     }
     
     evt.preventDefault()
@@ -85,23 +89,17 @@ async function handlerSubmit(evt) {
 
             tempData = taskLocalData.slice()
             taskLocalData = result.tasks
-            console.log(taskLocalData)
             local = false
             userId = result.username
-            handlerNew()
-
-            
-           /* let todosRequest = await fetch(`/todos/${result.username}`, { method: 'GET' })
-                if (response.status === 200) {
-                    let todosFromDB = await todosRequest.json()
-                    console.log(todosFromDB)
-                }
-
-            tempData = taskLocalData.slice()*/
-
+            currentActiveTab()
         }
+    } else {
+        const message = document.createElement("span")
+        message.className = "modal-message"
+        message.style.color = "red" 
+        message.textContent = "Incorrect login or password"
+        modalMenu.prepend(message)
     }
-  
 }
 
 function clearInputs() {

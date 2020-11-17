@@ -21,7 +21,7 @@ const User = mongoose.model("User", UserSchema)
 const ToDoSchema = mongoose.Schema({
     owner: String,
     description: String,
-    tags: String,
+    _tags: Array,
     completed: Boolean
 })
 const ToDo = mongoose.model("ToDo", ToDoSchema)
@@ -59,8 +59,8 @@ app.post("/user", (req, res) => {
             if (err) {
                 console.log(err)
                 res.sendStatus(500)
-            }
-            if (user.length) {
+            } else 
+            if (user.length !==0 ) {
                 ToDo.find({"owner": user[0].username}, (err, tasks) => {
                     if (err) {
                         console.log(err)
@@ -69,18 +69,12 @@ app.post("/user", (req, res) => {
                     res.json({"action": "login", "username": user[0].username, "tasks":tasks})
                 })
             }else {
-                res.status(404).json({"action": "login", "message": "Incorrect Username of Password"})
+               res.sendStatus(201)
             }
         })
     }
-    
 })
 
-app.get("/todos/:user", (req, res) => {
-    console.log(req.params.user)
-
-    res.sendStatus(200)
-})
 app.post("/todos/:action", (req, res) => {
     switch(req.params.action) {
         case "add":

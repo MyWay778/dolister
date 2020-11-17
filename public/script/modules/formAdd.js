@@ -26,10 +26,8 @@ function makeHandlerSubmitAdd(formAdd, Task) {
                 },
                 body: JSON.stringify(newTask)
             })
-            console.log(sendTask.status)
         }   
         
         currentActiveTab()                      
-       console.log(tempData)
     }
 }

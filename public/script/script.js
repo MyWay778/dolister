@@ -22,11 +22,11 @@ currentActiveTab = handlerNew
 tabs[0].addEventListener("click", handlerNew, false)
 
 //Old tab
-const handlerOld = makeHandlerTab(displayList, taskLocalData, false)
+const handlerOld = makeHandlerTab(displayList, false)
 tabs[1].addEventListener("click",handlerOld)
 
 //Tags tab
-const handlerTags = makeHandlerTabTags(displayList, taskLocalData)
+const handlerTags = makeHandlerTabTags(displayList)
 tabs[2].addEventListener("click", handlerTags, false)
 
 //Form-Add

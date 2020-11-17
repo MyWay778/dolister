@@ -18,14 +18,13 @@ function makeHandlerTab(displayList, reverse = false) {
 }
 
 
-function makeHandlerTabTags(displayList, taskLocalDate) {
+function makeHandlerTabTags(displayList) {
     return (evt) => {
         displayList.innerHTML = ""
         const tagTaskObject  = {
             "tag":[{"description":"some", "complited":false}]
         }
-       
-        const tagsData =  taskLocalDate.reduce( (tagsObj, currentTask) => {
+        const tagsData =  taskLocalData.reduce( (tagsObj, currentTask) => {
             currentTask._tags.forEach( task => {
                 if (!(task in tagsObj)) {
                     tagsObj[task] = []
