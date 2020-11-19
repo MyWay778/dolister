@@ -1,66 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>Dolister</title>
-    <meta name="author" content="Ivan Saklakov">
-    <meta name="description" content="to-do list app, my first app">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+    <meta name="author" content="Ivan Saklakov" />
+    <meta name="description" content="to-do list app, my first app" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
     <div class="page-wrap">
-        <div class="content-wrap">
-            <header class="header header_s">
-                <div class="header-wrap">
-                    <div class="title title_theme_one">
-                        <a class="link" href='index.html'>
-                            <img class="title__image" src="images/title__image.png" alt="logo">
-                            <h1 class="title__text title__text_simple">Dolister</h1>
-                        </a>
-                    </div>
-                    <nav class="nav nav_theme_one">
-                        <ul class="menu menu_theme_one panel_text_simple">
-                            <li class="menu__item"><a class="link  link_menu" href="about.html">About</a></li>
-                            <li class="menu__item item_highlight"><a id="login" class="link link_menu" href="#">Log in</a></li>
-                            <li class="menu__item"><a id="signup" class="link link_menu" href="#">Sign up</a></li>
-                        </ul>
-                        <span class="burger burger_theme_one"></span>
-                        <div class="modal modal_signup">
-                            <form class="modal-menu" method="POST" action="/user">
-                                <input name="login" id="login" class="form-add__input modal-menu__input" type ="text" placeholder="login" minLength="3" maxLength="15" required>
-                                <input name="password" id="password" class="form-add__input modal-menu__input" type="password" autocomplete="on" placeholder="password" minLength="5" maxLength="15" required> 
-                                <input name="confirm" id="confirm" class="form-add__input modal-menu__input" type="password" autocomplete="on" placeholder="confirm"  required>
-                                <input class="modal-menu__submit" type="submit" value="signup">
-                            </form>
-                        </div>
-                    </nav>
-                </div>
-            </header>
-            <main class="main">
-                <div class='panel panel_theme_one panel_text_simple'>
-                    <span class='panel__item'><a class="link link_panel" href="#">New</a></span> 
-                    <span class='panel__item'><a class="link link_panel" href="#">Old</a></span>
-                    <span class='panel__item'><a class="link link_panel" href="#">Tags</a></span>
-                    <span class='panel__item panel__item_aside'><a class="link link_panel_noclick" href="#">Add</a></span>
-                </div>
-                <section class="display">
-                    <aside class="aside-add aside-add_theme_one">
-                        <form name="formAdd" class="form-add" method="POST" action="">
-                            <input name="inputTask" class="form-add__input form-add__input_task" type="text" maxlength="40" placeholder="task" required>
-                            <input name="inputTags" class="form-add__input form-add__input_tags" type="text" maxlength="25" placeholder="tags">
-                            <button name="buttonAdd" class="form-add__submit" type="submit">+</button>
-                        </form>
-                    </aside>
-                    <section class="display-list">
-                    </section>
-                </section>
-            </main>
-        </div>
-        <footer class="footer">
-            <span class="copyright">Ivan Saklakov <b>2020</b> sakla4onakne@mail.ru</span>
-        </footer>
+      <div class="content-wrap">
+        <header class="header header_s">
+          <div class="header-wrap">
+            <div class="title title_theme_one">
+              <a class="link" href="index.html">
+                <img
+                  class="title__image"
+                  src="images/title__image.png"
+                  alt="logo"
+                />
+                <h1 class="title__text title__text_simple">Dolister</h1>
+              </a>
+            </div>
+            <nav class="nav nav_theme_one">
+              <ul class="menu menu_theme_one panel_text_simple menu_invisible">
+                <li class="menu__item">
+                  <a class="link link_menu" href="about.html">About</a>
+                </li>
+                <li class="menu__item item_highlight">
+                  <a id="login" class="link link_menu" href="#">Log in</a>
+                </li>
+                <li class="menu__item">
+                  <a id="signup" class="link link_menu" href="#">Sign up</a>
+                </li>
+              </ul>
+              <span class="burger burger_theme_one"></span>
+              <div class="modal modal_signup">
+                <form class="modal-menu" method="POST" action="/user">
+                  <input
+                    name="login"
+                    id="login"
+                    class="form-add__input modal-menu__input"
+                    type="text"
+                    placeholder="login"
+                    minlength="3"
+                    maxlength="15"
+                    required
+                  />
+                  <input
+                    name="password"
+                    id="password"
+                    class="form-add__input modal-menu__input"
+                    type="password"
+                    autocomplete="on"
+                    placeholder="password"
+                    minlength="5"
+                    maxlength="15"
+                    required
+                  />
+                  <input
+                    name="confirm"
+                    id="confirm"
+                    class="form-add__input modal-menu__input"
+                    type="password"
+                    autocomplete="on"
+                    placeholder="confirm"
+                    required
+                  />
+                  <input
+                    class="modal-menu__submit"
+                    type="submit"
+                    value="signup"
+                  />
+                </form>
+              </div>
+            </nav>
+          </div>
+        </header>
+        <main class="main">
+          <div class="panel panel_theme_one panel_text_simple">
+            <span class="panel__item"
+              ><a class="link link_panel" href="#">New</a></span
+            >
+            <span class="panel__item"
+              ><a class="link link_panel" href="#">Old</a></span
+            >
+            <span class="panel__item"
+              ><a class="link link_panel" href="#">Tags</a></span
+            >
+            <span class="panel__item panel__item_aside"
+              ><a class="link link_panel_noclick" href="#">Add</a></span
+            >
+          </div>
+          <section class="display">
+            <aside class="aside-add aside-add_theme_one">
+              <form name="formAdd" class="form-add" method="POST" action="">
+                <input
+                  name="inputTask"
+                  class="form-add__input form-add__input_task"
+                  type="text"
+                  maxlength="40"
+                  placeholder="task"
+                  required
+                />
+                <input
+                  name="inputTags"
+                  class="form-add__input form-add__input_tags"
+                  type="text"
+                  maxlength="25"
+                  placeholder="tags"
+                />
+                <button name="buttonAdd" class="form-add__submit" type="submit">
+                  +
+                </button>
+              </form>
+            </aside>
+            <section class="display-list"></section>
+          </section>
+        </main>
+      </div>
+      <footer class="footer">
+        <span class="copyright"
+          >Ivan Saklakov <b>2020</b> sakla4onakne@mail.ru</span
+        >
+      </footer>
     </div>
     <script defer src="script/modules/modalMenu.js"></script>
     <script defer src="script/modules/controls.js"></script>
@@ -69,5 +139,5 @@
     <script defer src="script/modules/localStorage.js"></script>
     <script defer src="script/modules/tabs.js"></script>
     <script defer src="script/script.js"></script>
-</body>
+  </body>
 </html>
