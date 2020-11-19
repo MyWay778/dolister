@@ -1,4 +1,4 @@
-function extractLocalStorageData(key){
+function extractLocalStorageData(key) {
     return JSON.parse(localStorage.getItem(key))
 }
 
